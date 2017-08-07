@@ -1,0 +1,36 @@
+<div class="container">
+  <div class="row">
+    <div class="col-xs-12 col-sm-6 col-sm-offset-3 col-md-4 col-md-offset-4">
+        <h1 class="text-center">Add activity</h1>
+        <%= form_for(@activity) do |f| %>
+        <div class="form-group">
+          <%= f.label :activity %>
+          <%= f.text_field :activity, class: "form-control" %>
+        </div>
+        <div class="row">
+          <div class="col-xs-6">
+            <div class="form-group">
+              <%= f.label :date %>
+              <%= f.date_field :date, class: "form-control" %>
+            </div>
+          </div>
+          <div class="col-xs-6">
+            <div class="form-group">
+              <%= f.label :period %>
+              <%= f.select :period, ["Morning", "Afternoon", "Evening"], {}, class: "form-control" %>
+            </div>
+          </div>
+        </div>
+        <div class="form-group">
+          <%= f.label :description %>
+          <%= f.text_field :description, class: "form-control" %>
+        </div>
+        <div class="form-group">
+          <%= f.label :comments %>
+          <%= f.text_area :comments, class: "form-control", rows: "3" %>
+        </div>
+          <%= f.submit class: "btn btn-primary" %>
+        <% end %>
+    </div>
+  </div>
+</div>

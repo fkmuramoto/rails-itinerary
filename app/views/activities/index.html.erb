@@ -1,0 +1,24 @@
+<div class="container">
+  <div class="row">
+    <div class="col-xs-12 col-sm-6 col-sm-offset-3 col-md-4 col-md-offset-4">
+      <h1 class="text-center">Activity</h1>
+      <%= link_to "Add", new_activity_path %><br><br>
+      <% @activities.each do |date, periods| %>
+        <h2><%= date.strftime("%d/%b") %></h2>
+        <% periods.each do |period, activities| %>
+          <h3><%= period %></h3>
+          <% activities.each do |activity| %>
+            Name: <%= link_to activity.activity, activity_path(activity) %><br>
+            Description: <%= activity.description %><br>
+            Comments: <%= activity.comments %><br><br>
+            <p>
+              <%= link_to "Edit", edit_activity_path(activity) %> |
+              <%= link_to "Delete", activity_path(activity), method: "delete", data: { confirm: "Are you sure?" } %>
+            </p>
+            <hr>
+          <% end %>
+        <% end %>
+      <% end %>
+    </div>
+  </div>
+</div>
